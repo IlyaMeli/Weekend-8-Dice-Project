@@ -1,0 +1,20 @@
+.player-card{
+    width:20%;
+    height:80%;
+    background-color:#F1FAEE;
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+}
+/* h1{
+    color:#E63946;
+    font-size:4vw;
+} */
+
+.content{
+    height:70%;
+    background-color:#1D3557;
+    width:90%;
+}
