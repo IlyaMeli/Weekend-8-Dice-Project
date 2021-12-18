@@ -44,3 +44,15 @@
 .reset:hover {
   color: #f1faee;
 }
+
+label {
+  font-size: 20px;
+  color: #1d3557;
+}
+input {
+  font-size: 20px;
+  padding: 1%;
+  border: none;
+  background-color: #f1faee;
+  color: #e63946;
+}

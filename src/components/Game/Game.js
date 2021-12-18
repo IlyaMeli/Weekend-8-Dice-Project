@@ -25,6 +25,9 @@ export default class Game extends Component {
     this.setState(JSON.parse(JSON.stringify(initialState)));
   };
 
+  handlePoints = (event) => {
+    this.setState({ pointsToWin: event.target.value });
+  };
   randomizeDice = () => {
     let newDiceValue = [];
     while (newDiceValue.length < 2) {
@@ -111,6 +114,8 @@ export default class Game extends Component {
           hold={this.hold}
           dice={this.state.dice}
           reset={this.reset}
+          handlePoints={this.handlePoints}
+          points={this.state.pointsToWin}
         />
         <Player
           playersTurn={this.state.playersTurn}

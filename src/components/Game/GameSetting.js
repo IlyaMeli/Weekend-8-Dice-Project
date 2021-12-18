@@ -30,6 +30,14 @@ export default class GameSetting extends Component {
         <div className="reset" onClick={this.props.reset}>
           Reset
         </div>
+        <label>
+          POINTS TO WIN:
+          <input
+            type="text"
+            value={this.props.points}
+            onChange={this.props.handlePoints}
+          />
+        </label>
       </div>
     );
   }
