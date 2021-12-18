@@ -11,10 +11,12 @@ export default class GameSetting extends Component {
               <img
                 className="dice"
                 src={`./images/dice-${this.props.dice[0]}.png`}
+                alt="die-1"
               />
               <img
                 className="dice"
                 src={`./images/dice-${this.props.dice[1]}.png`}
+                alt="die-2"
               />
             </>
           )}

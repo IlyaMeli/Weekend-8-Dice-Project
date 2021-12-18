@@ -75,7 +75,7 @@ export default class Game extends Component {
   };
 
   hold = () => {
-    const { playersTurn, pointsToWin, winner } = this.state;
+    const { playersTurn, winner } = this.state;
     if (winner) return;
     this.updateGlobalScore(playersTurn);
     this.setState({ dice: [null, null] });
