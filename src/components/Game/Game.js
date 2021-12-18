@@ -24,6 +24,7 @@ export default class Game extends Component {
   reset = () => {
     this.setState(JSON.parse(JSON.stringify(initialState)));
   };
+
   randomizeDice = () => {
     let newDiceValue = [];
     while (newDiceValue.length < 2) {
@@ -69,9 +70,18 @@ export default class Game extends Component {
     if (winner) return;
     let newDiceValue = this.randomizeDice();
     this.setState({ dice: newDiceValue }, () => {
-      this.sumDice();
+      let sum = this.sumDice();
+      if (sum === 12) {
+        this.switchPlayer();
+      }
       this.updateCurrentScore(playersTurn);
     });
+  };
+
+  switchPlayer = () => {
+    this.state.playersTurn === "player1"
+      ? this.setState({ playersTurn: "player2" })
+      : this.setState({ playersTurn: "player1" });
   };
 
   hold = () => {
@@ -79,9 +89,7 @@ export default class Game extends Component {
     if (winner) return;
     this.updateGlobalScore(playersTurn);
     this.setState({ dice: [null, null] });
-    this.state.playersTurn === "player1"
-      ? this.setState({ playersTurn: "player2" })
-      : this.setState({ playersTurn: "player1" });
+    this.switchPlayer();
     this.setState((prevState) => ({
       [playersTurn]: {
         ...prevState[playersTurn],
@@ -103,7 +111,6 @@ export default class Game extends Component {
           hold={this.hold}
           dice={this.state.dice}
           reset={this.reset}
-          musicPlay={this.playSound}
         />
         <Player
           playersTurn={this.state.playersTurn}
