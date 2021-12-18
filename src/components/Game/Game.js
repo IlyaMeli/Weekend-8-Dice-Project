@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import GameSetting from "./GameSetting";
 import "./game.css";
-import Player from "./Player";
+import Player from "../Player/Player";
 
 const initialState = {
   pointsToWin: 100,
@@ -45,7 +45,6 @@ export default class Game extends Component {
         currentScore: this.state[currPlayer].currentScore + this.sumDice(),
       },
     }));
-    // this.setState({[x]:{currentScore: this.state.x.currentScore + this.sumDice()}})
   };
   updateGlobalScore = (currPlayer) => {
     this.setState(
@@ -59,7 +58,7 @@ export default class Game extends Component {
       }),
       () => {
         if (this.state[currPlayer].globalScore >= this.state.pointsToWin) {
-          this.setState({ [currPlayer]: { globalScore: "WINNER!" } });
+          this.setState({ [currPlayer]: { globalScore: "WINNER" } });
           this.setState({ winner: true });
         }
       }
@@ -94,20 +93,23 @@ export default class Game extends Component {
     return (
       <div className="game-wrapper">
         <Player
+          playersTurn={this.state.playersTurn}
           globalScore={this.state.player1.globalScore}
           score={this.state.player1.currentScore}
-          name="Player1"
+          name="player1"
         />
         <GameSetting
           diceRoll={this.diceRoll}
           hold={this.hold}
           dice={this.state.dice}
           reset={this.reset}
+          musicPlay={this.playSound}
         />
         <Player
+          playersTurn={this.state.playersTurn}
           globalScore={this.state.player2.globalScore}
           score={this.state.player2.currentScore}
-          name="Player2"
+          name="player2"
         />
       </div>
     );
