@@ -21,11 +21,11 @@
 }
 
 .dice {
-  width: 150px;
-  height: 150px;
+  width: 9vw;
+  height: 9vw;
 }
 .dice-container {
-  height: 50%;
+  height: 60%;
   display: flex;
   align-items: center;
   flex-direction: column;
